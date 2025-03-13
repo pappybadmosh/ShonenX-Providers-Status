@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Server Status Editor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .form-container, .json-upload {
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #3498db;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .status-online {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .status-issues {
+            color: #e67e22;
+            font-weight: bold;
+        }
+        .status-offline {
+            color: #c0392b;
+            font-weight: bold;
+        }
+        .editable:hover {
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+        .actions {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Custom Server Status Editor</h1>
+        
+        <!-- Form to input server status -->
+        <div class="form-container">
+            <div class="form-group">
+                <label for="serverName">Server Name:</label>
+                <input type="text" id="serverName" placeholder="e.g., gogoanime" required>
+            </div>
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <select id="status" required>
+                    <option value="online">Online</option>
+                    <option value="issues">Issues</option>
+                    <option value="offline">Offline</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <input type="text" id="message" placeholder="e.g., All systems operational" required>
+            </div>
+            <button onclick="addServerStatus()">Add Server Status</button>
+        </div>
+
+        <!-- JSON Upload -->
+        <div class="json-upload">
+            <label for="jsonFile">Upload JSON File:</label>
+            <input type="file" id="jsonFile" accept=".json" onchange="uploadJSON()">
+        </div>
+
+        <!-- Table to display data -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Server</th>
+                    <th>Status</th>
+                    <th>Message</th>
+                    <th>Last Checked</th>
+                </tr>
+            </thead>
+            <tbody id="statusTableBody"></tbody>
+        </table>
+
+        <!-- Download button -->
+        <div class="actions">
+            <button onclick="downloadJSON()">Download as JSON</button>
+        </div>
+    </div>
+
+    <script>
+        // Default server status data
+        let serverStatus = {
+            'gogoanime': {
+                'status': 'online',
+                'message': 'All systems operational',
+                'lastChecked': new Date(Date.now() - 5 * 60 * 1000).toISOString()
+            },
+            'animepahe': {
+                'status': 'issues',
+                'message': 'Experiencing some delays',
+                'lastChecked': new Date(Date.now() - 10 * 60 * 1000).toISOString()
+            },
+            'zoro': {
+                'status': 'offline',
+                'message': 'Server maintenance in progress',
+                'lastChecked': new Date(Date.now() - 60 * 60 * 1000).toISOString()
+            },
+            'animefox': {
+                'status': 'online',
+                'message': 'All systems operational',
+                'lastChecked': new Date(Date.now() - 3 * 60 * 1000).toISOString()
+            },
+            'kaido': {
+                'status': 'online',
+                'message': 'All systems operational',
+                'lastChecked': new Date(Date.now() - 2 * 60 * 1000).toISOString()
+            },
+            'animekai': {
+                'status': 'online',
+                'message': 'All systems operational',
+                'lastChecked': new Date(Date.now() - 1 * 60 * 1000).toISOString()
+            }
+        };
+
+        // Function to add a new server status
+        function addServerStatus() {
+            const serverName = document.getElementById('serverName').value.trim();
+            const status = document.getElementById('status').value;
+            const message = document.getElementById('message').value.trim();
+
+            if (!serverName || !message) {
+                alert('Please fill in all required fields (Server Name and Message).');
+                return;
+            }
+
+            if (serverStatus[serverName]) {
+                alert('Server name already exists. Use a unique name or edit the existing entry.');
+                return;
+            }
+
+            serverStatus[serverName] = { 
+                status, 
+                message, 
+                lastChecked: new Date().toISOString() // Set to current time
+            };
+            populateTable();
+            clearForm();
+        }
+
+        // Function to clear the form
+        function clearForm() {
+            document.getElementById('serverName').value = '';
+            document.getElementById('status').value = 'online';
+            document.getElementById('message').value = '';
+        }
+
+        // Function to populate the table
+        function populateTable() {
+            const tbody = document.getElementById('statusTableBody');
+            tbody.innerHTML = '';
+
+            for (const server in serverStatus) {
+                const data = serverStatus[server];
+                const row = document.createElement('tr');
+
+                const serverCell = document.createElement('td');
+                serverCell.textContent = server;
+                serverCell.className = 'editable';
+                serverCell.onclick = () => editCell(server, 'server', serverCell);
+                row.appendChild(serverCell);
+
+                const statusCell = document.createElement('td');
+                statusCell.textContent = data.status;
+                statusCell.className = `status-${data.status} editable`;
+                statusCell.onclick = () => editCell(server, 'status', statusCell);
+                row.appendChild(statusCell);
+
+                const messageCell = document.createElement('td');
+                messageCell.textContent = data.message;
+                messageCell.className = 'editable';
+                messageCell.onclick = () => editCell(server, 'message', messageCell);
+                row.appendChild(messageCell);
+
+                const lastCheckedCell = document.createElement('td');
+                lastCheckedCell.textContent = new Date(data.lastChecked).toLocaleString();
+                // No className or onclick for lastChecked - not editable
+                row.appendChild(lastCheckedCell);
+
+                tbody.appendChild(row);
+            }
+        }
+
+        // Function to edit a cell
+        function editCell(server, field, cell) {
+            if (field === 'status') {
+                const select = document.createElement('select');
+                ['online', 'issues', 'offline'].forEach(optionValue => {
+                    const option = document.createElement('option');
+                    option.value = optionValue;
+                    option.textContent = optionValue;
+                    if (optionValue === serverStatus[server][field]) {
+                        option.selected = true;
+                    }
+                    select.appendChild(option);
+                });
+                select.onchange = () => {
+                    serverStatus[server][field] = select.value;
+                    populateTable();
+                };
+                cell.innerHTML = '';
+                cell.appendChild(select);
+                select.focus();
+            } else if (field === 'server' || field === 'message') {
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.value = field === 'server' ? server : serverStatus[server][field];
+                input.onchange = () => {
+                    if (field === 'server') {
+                        if (input.value && input.value !== server && !serverStatus[input.value]) {
+                            serverStatus[input.value] = serverStatus[server];
+                            delete serverStatus[server];
+                        } else {
+                            alert('Server name must be unique and non-empty.');
+                            return;
+                        }
+                    } else {
+                        serverStatus[server][field] = input.value;
+                    }
+                    populateTable();
+                };
+                cell.innerHTML = '';
+                cell.appendChild(input);
+                input.focus();
+            }
+            // No editing for lastChecked
+        }
+
+        // Function to upload and parse JSON
+        function uploadJSON() {
+            const fileInput = document.getElementById('jsonFile');
+            const file = fileInput.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const jsonData = JSON.parse(e.target.result);
+                    if (typeof jsonData === 'object' && jsonData !== null) {
+                        serverStatus = {};
+                        for (const server in jsonData) {
+                            const data = jsonData[server];
+                            serverStatus[server] = {
+                                status: data.status || 'online',
+                                message: data.message || 'No message provided',
+                                lastChecked: data.lastChecked || new Date().toISOString()
+                            };
+                        }
+                        populateTable();
+                    } else {
+                        alert('Invalid JSON format. Please upload a valid JSON object.');
+                    }
+                } catch (error) {
+                    alert('Error parsing JSON: ' + error.message);
+                }
+            };
+            reader.readAsText(file);
+            fileInput.value = ''; // Reset file input
+        }
+
+        // Function to download the data as JSON with updated lastChecked
+        function downloadJSON() {
+            if (Object.keys(serverStatus).length === 0) {
+                alert('No data to download. Please add at least one server status.');
+                return;
+            }
+
+            // Update lastChecked for all entries to current time
+            const currentTime = new Date().toISOString();
+            for (const server in serverStatus) {
+                serverStatus[server].lastChecked = currentTime;
+            }
+
+            // Repopulate table to reflect updated lastChecked times
+            populateTable();
+
+            // Download as JSON
+            const jsonString = JSON.stringify(serverStatus, null, 2);
+            const blob = new Blob([jsonString], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'custom_server_status.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Populate the table on page load
+        window.onload = populateTable;
+    </script>
+</body>
+</html>
