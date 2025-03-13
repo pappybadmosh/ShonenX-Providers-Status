@@ -1,0 +1,37 @@
+{
+  "gogoanime": {
+    "status": "offline",
+    "message": "All systems operational",
+    "lastChecked": "2025-03-13T18:32:10.940Z"
+  },
+  "animepahe": {
+    "status": "online",
+    "message": "Experiencing some delays",
+    "lastChecked": "2025-03-13T18:32:10.940Z"
+  },
+  "animefox": {
+    "status": "offline",
+    "message": "All systems operational",
+    "lastChecked": "2025-03-13T18:32:10.940Z"
+  },
+  "kaido": {
+    "status": "online",
+    "message": "All systems operational",
+    "lastChecked": "2025-03-13T18:32:10.940Z"
+  },
+  "animekai": {
+    "status": "issues",
+    "message": "Problem getting sources",
+    "lastChecked": "2025-03-13T18:32:10.940Z"
+  },
+  "hianime": {
+    "status": "issues",
+    "message": "Issues in india",
+    "lastChecked": "2025-03-13T18:32:10.940Z"
+  },
+  "anify": {
+    "status": "offline",
+    "message": "Server down",
+    "lastChecked": "2025-03-13T18:32:10.940Z"
+  }
+}
