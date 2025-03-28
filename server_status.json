@@ -1,37 +1,37 @@
 {
   "animepahe": {
     "status": "online",
-    "message": "Experiencing some delays",
-    "lastChecked": "2025-03-13T18:39:01.942Z"
+    "message": "Service is operational but slower than other sources.",
+    "lastChecked": "2025-03-28T23:02:52.647337Z"
   },
   "animefox": {
     "status": "offline",
-    "message": "All systems operational",
-    "lastChecked": "2025-03-13T18:39:01.942Z"
+    "message": "Currently unavailable. Please check back later.",
+    "lastChecked": "2025-03-28T23:02:52.647337Z"
   },
   "kaido": {
     "status": "online",
-    "message": "All systems operational",
-    "lastChecked": "2025-03-13T18:39:01.942Z"
+    "message": "Fully operational, including in India.",
+    "lastChecked": "2025-03-28T23:02:52.647337Z"
   },
   "animekai": {
-    "status": "issues",
-    "message": "Problem getting sources",
-    "lastChecked": "2025-03-13T18:39:01.942Z"
+    "status": "online",
+    "message": "Service is functional, but some anime may have issues.",
+    "lastChecked": "2025-03-28T23:02:52.647337Z"
   },
   "hianime": {
     "status": "issues",
-    "message": "Issues in india",
-    "lastChecked": "2025-03-13T18:39:01.942Z"
+    "message": "Accessible but facing issues in India, possibly due to regional restrictions.",
+    "lastChecked": "2025-03-28T23:02:52.647337Z"
   },
   "anify": {
     "status": "offline",
-    "message": "Server down",
-    "lastChecked": "2025-03-13T18:39:01.942Z"
+    "message": "Server is down. No ETA for recovery.",
+    "lastChecked": "2025-03-28T23:02:52.647337Z"
   },
   "aniwatch": {
     "status": "issues",
-    "message": "Issues in india",
-    "lastChecked": "2025-03-13T18:39:01.942Z"
+    "message": "Service is working but facing accessibility issues in India, likely due to regional blocks.",
+    "lastChecked": "2025-03-28T23:02:52.647337Z"
   }
 }
