@@ -15,8 +15,8 @@
     "lastChecked": "2025-03-28T23:02:52.647337Z"
   },
   "animekai": {
-    "status": "online",
-    "message": "Service is functional, but some anime may have issues.",
+    "status": "offline",
+    "message": "Service is having trouble extracting sources",
     "lastChecked": "2025-03-28T23:02:52.647337Z"
   },
   "hianime": {
