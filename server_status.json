@@ -1,37 +1,37 @@
 {
   "animepahe": {
-    "status": "online",
-    "message": "Service is operational but slower than other sources.",
-    "lastChecked": "2025-05-19T19:05:27.727Z"
+    "status": "offline",
+    "message": "Currently unavailable. Please check back later.",
+    "lastChecked": "2025-05-25T18:59:09.120Z"
   },
   "animefox": {
     "status": "offline",
     "message": "Currently unavailable. Please check back later.",
-    "lastChecked": "2025-05-19T19:05:27.727Z"
+    "lastChecked": "2025-05-25T18:59:09.120Z"
   },
   "kaido": {
     "status": "online",
-    "message": "Fully operational.",
-    "lastChecked": "2025-05-19T19:05:27.727Z"
+    "message": "Fully operational, including in India.",
+    "lastChecked": "2025-05-25T18:59:09.120Z"
   },
   "animekai": {
     "status": "offline",
-    "message": "Consumet API is having some issues currently.",
-    "lastChecked": "2025-05-19T19:05:27.727Z"
+    "message": "Service is having trouble extracting sources",
+    "lastChecked": "2025-05-25T18:59:09.120Z"
   },
   "hianime": {
     "status": "online",
-    "message": "Fully operational.",
-    "lastChecked": "2025-05-19T19:05:27.727Z"
+    "message": "Service is working perfectly.",
+    "lastChecked": "2025-05-25T18:59:09.120Z"
   },
   "anify": {
     "status": "offline",
     "message": "Server is down. No ETA for recovery.",
-    "lastChecked": "2025-05-19T19:05:27.727Z"
+    "lastChecked": "2025-05-25T18:59:09.120Z"
   },
   "aniwatch": {
-    "status": "issues",
-    "message": "Service is working but facing accessibility issues in India, likely due to regional blocks.",
-    "lastChecked": "2025-05-19T19:05:27.727Z"
+    "status": "offline",
+    "message": "Currently unavailable. Please check back later.",
+    "lastChecked": "2025-05-25T18:59:09.120Z"
   }
 }
