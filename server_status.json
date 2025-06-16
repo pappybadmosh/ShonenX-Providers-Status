@@ -1,37 +1,37 @@
 {
   "animepahe": {
     "status": "offline",
-    "message": "Currently unavailable. Please check back later.",
+    "message": "API is down.",
     "lastChecked": "2025-05-25T18:59:09.120Z"
   },
   "animefox": {
     "status": "offline",
-    "message": "Currently unavailable. Please check back later.",
+    "message": "API is down.",
     "lastChecked": "2025-05-25T18:59:09.120Z"
   },
   "kaido": {
-    "status": "online",
-    "message": "Fully operational, including in India.",
+    "status": "offline",
+    "message": "API is down.",
     "lastChecked": "2025-05-25T18:59:09.120Z"
   },
   "animekai": {
     "status": "offline",
-    "message": "Service is having trouble extracting sources",
+    "message": "API is down.",
     "lastChecked": "2025-05-25T18:59:09.120Z"
   },
   "hianime": {
-    "status": "online",
-    "message": "Service is working perfectly.",
+    "status": "offline",
+    "message": "API is down.",
     "lastChecked": "2025-05-25T18:59:09.120Z"
   },
   "anify": {
     "status": "offline",
-    "message": "Server is down. No ETA for recovery.",
+    "message": "API is down.",
     "lastChecked": "2025-05-25T18:59:09.120Z"
   },
   "aniwatch": {
     "status": "offline",
-    "message": "Currently unavailable. Please check back later.",
+    "message": "API is down.",
     "lastChecked": "2025-05-25T18:59:09.120Z"
   }
 }
