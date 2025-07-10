@@ -10,8 +10,8 @@
     "lastChecked": "2025-05-25T18:59:09.120Z"
   },
   "kaido": {
-    "status": "offline",
-    "message": "API is down.",
+    "status": "online",
+    "message": "Unified (Temporary fix)",
     "lastChecked": "2025-05-25T18:59:09.120Z"
   },
   "animekai": {
@@ -20,8 +20,8 @@
     "lastChecked": "2025-05-25T18:59:09.120Z"
   },
   "hianime": {
-    "status": "offline",
-    "message": "API is down.",
+    "status": "online",
+    "message": "Unified (Temporary fix)",
     "lastChecked": "2025-05-25T18:59:09.120Z"
   },
   "anify": {
@@ -30,8 +30,8 @@
     "lastChecked": "2025-05-25T18:59:09.120Z"
   },
   "aniwatch": {
-    "status": "offline",
-    "message": "API is down.",
+    "status": "online",
+    "message": "Unified (Temporary fix)",
     "lastChecked": "2025-05-25T18:59:09.120Z"
   }
 }
