@@ -1,7 +1,7 @@
 {
   "animepahe": {
-    "status": "offline",
-    "message": "API is down.",
+    "status": "online",
+    "message": "API is online.",
     "lastChecked": "2025-05-25T18:59:09.120Z"
   },
   "animefox": {
@@ -10,7 +10,7 @@
     "lastChecked": "2025-05-25T18:59:09.120Z"
   },
   "kaido": {
-    "status": "online",
+    "status": "issues",
     "message": "Unified (Temporary fix)",
     "lastChecked": "2025-05-25T18:59:09.120Z"
   },
@@ -20,7 +20,7 @@
     "lastChecked": "2025-05-25T18:59:09.120Z"
   },
   "hianime": {
-    "status": "online",
+    "status": "issues",
     "message": "Unified (Temporary fix)",
     "lastChecked": "2025-05-25T18:59:09.120Z"
   },
@@ -30,7 +30,7 @@
     "lastChecked": "2025-05-25T18:59:09.120Z"
   },
   "aniwatch": {
-    "status": "online",
+    "status": "issues",
     "message": "Unified (Temporary fix)",
     "lastChecked": "2025-05-25T18:59:09.120Z"
   }
